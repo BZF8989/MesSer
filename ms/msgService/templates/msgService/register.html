@@ -6,22 +6,34 @@ Register
 {% endblock %}
 
 {% block content %}
-    <div class="centered">
-        <h1 class="innerHeading">Register for an Account</h1>
-</div>
 
-    <div class="login-form">
-        <p id="required_rigester" > * All fields are required</p>
-
-        <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="submit">Submit</button>
-
-        </form>
-
-        <p style="width:100%;">Already have an account? <a  id="register_now" href="{% url 'login' %}">Click here</a> to log in.</p>
-
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1 class="innerHeading">Register for an Account</h1>
+                        <div class="register-form">
+                            <p id="required_rigester" > * All fields are required</p>
+                            {% if error_message %}
+                            <p style="color: #761c19;"><strong>{{ error_message|safe }}</strong></p>
+                            {% endif %}
+                            <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data" style="margin-left:8%">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </form>
+                            <div class="panel-footer">
+                                <p style="width:100%;">Already have an account? <a  id="login_now" href="{% url 'login' %}">Click here</a> to log in.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 {% endblock %}

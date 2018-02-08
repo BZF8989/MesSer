@@ -6,16 +6,26 @@ from .forms import *
 
 
 def home(request):
+    """
+    home page of website, user not logged in.
+    :param request: HTTP request
+    :return: home page (index.html)
+    """
     return render(request, 'msgService/index.html')
 
 
 def login_r(request):
+    """
+    login page
+    :param request: HTTP request
+    :return: login page
+    """
     return render(request, 'msgService/login.html')
 
 
 class RegisterForm(View):
     """
-    Registration form
+    Register Form to be displayed
     """
     form = RegisterForm
     template_name = 'msgService/register.html'

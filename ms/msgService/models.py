@@ -6,6 +6,12 @@ from django.core.validators import RegexValidator
 
 
 class BaseModel (models.Model):
+    """
+    Base Model is an abstract class that is extended by all
+    other models. This includes creation time, last update time and visibility.
+    Modifications to this class will alter all models!
+    """
+
     creation_date = models.DateTimeField(auto_now_add=True)
     last_updated_date = models.DateTimeField(auto_now=True)
     visible = models.IntegerField(default=0)
