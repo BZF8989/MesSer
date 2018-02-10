@@ -72,6 +72,9 @@ class User(AbstractBaseUser, BaseModel):
     def get_short_name(self):
         return self.first_name[0] + ". " + self.last_name
 
+    def get_username(self):
+        return self.get_short_name();
+
     objects = UserManager()
 
 
