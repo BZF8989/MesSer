@@ -33,5 +33,5 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError("Passwords don't match")
         return password2
 
-
-
+    def create_user(self, email, phone_number, password):
+        return self.User.UserManager.create_user(email, phone_number, password)
