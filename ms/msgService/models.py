@@ -56,11 +56,11 @@ class User(AbstractBaseUser, BaseModel):
                                          "'+999999999'. Up to 15 digits allowed.")
     uid = models.AutoField(primary_key=True)
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=False, unique=True)
-    email = models.EmailField(blank=False, unique=True)
-    password = models.CharField(max_length=100)
+    email = models.EmailField(blank=False, )
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'phone_number'
